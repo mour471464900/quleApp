@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gzql.mlqy.qule.MainActivity"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
+    android:background="#ffffff"
+    >
+
+    <FrameLayout
+        android:id="@+id/container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:background="@color/gray"
+      />
+    <RadioGroup
+        android:id="@+id/switch_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="5dp"
+
+        >
+
+        <RadioButton
+            android:id="@+id/rbt_cloud"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/slt_cloud"
+            android:gravity="center"
+            android:textSize="0dp" />
+
+        <RadioButton
+            android:id="@+id/rbt_promote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/slt_promote"
+            android:gravity="center"
+            android:textSize="0dp"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/rbt_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/slt_setting"
+            android:gravity="center"
+            android:textSize="0dp" />
+
+        <RadioButton
+            android:id="@+id/rbt_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/slt_switch_url"
+            android:gravity="center"
+            android:textSize="0dp" />
+
+
+    </RadioGroup>
+
+</LinearLayout>

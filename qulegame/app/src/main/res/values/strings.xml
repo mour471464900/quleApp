@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuLeGame</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logic">请登入</string>
+    <string name="welcome">欢迎来到趣乐游戏！</string>
+    <string name="message_center">消息中心</string>
+    <string name="my_order">我的订单</string>
+    <string name="favorites">收藏夹</string>
+
+
+</resources>
