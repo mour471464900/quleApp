@@ -52,4 +52,9 @@ public class PasswordBackActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

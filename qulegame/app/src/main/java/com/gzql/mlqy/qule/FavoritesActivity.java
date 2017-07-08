@@ -38,4 +38,9 @@ public class FavoritesActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

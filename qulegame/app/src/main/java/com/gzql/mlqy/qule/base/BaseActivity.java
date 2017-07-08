@@ -5,17 +5,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.gzql.mlqy.qule.utils.InterfaceShowToastAndProgress;
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by Administrator on 2017/6/28.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements InterfaceShowToastAndProgress{
+public abstract class BaseActivity extends AppCompatActivity implements InterfaceShowToastAndProgress, View.OnClickListener {
 
 
     private boolean showToast = true;//控制toast的开关
@@ -63,17 +62,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Interfac
         }
     }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
+    /**
+     * 绑定视图点击事件
+     * @param views    视图的数组
+     */
+    public void bindListener(View...views){
+        for (View v :views) {
+            if(null!=v){
+                v.setOnClickListener(this);
+            }
+        }
     }
-
-    @Override
-    public void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
-    }
-
 }

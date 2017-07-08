@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.2'
@@ -15,9 +16,83 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }    // 远程仓库
     }
 }
 
+//ext{
+//    isDebag  =true
+//}
+//
+//
+//class CreateProfileAction implements Action<Project> {
+//
+//    String pkg
+//    File profileJava
+//
+//    @Override
+//    void execute(Project project) {
+//        def manifest = new XmlParser().parse(project.android.sourceSets.main.manifestFile)
+//        def sdkPkg = manifest.@package
+//        def rootProject = project.rootProject
+//        String code = """
+//package ${pkg};
+//public class Profile{
+//    public static final boolean DEBUG_MODE = ${rootProject.isDebag};
+//}
+//
+// """
+//        if (profileJava.exists()) {
+//            if (profileJava.text == code) return
+//            profileJava.delete()
+//        }
+//
+//        profileJava.createNewFile()
+//
+//        def writer = profileJava.newWriter("utf-8")
+//        writer.write(code)
+//        writer.flush()
+//        writer.close()
+//
+//        println("huangli "+project)
+//    }
+//}
+//
+//for (Project subProject : subProjects) {
+//    subProject.afterEvaluate {
+//        try {
+//            def pkg = it.profile as String
+//            def profileJava = new File(it.projectDir, "src/main/java/${pkg.replaceAll('\\.', '/')}/Profile.java")
+//            createProfileJava(pkg, profileJava, appDepProject)
+//        } catch (e) {
+//        }
+//    }
+//
+//    if (subProject == small) continue
+//    subProject.afterEvaluate {
+//        it.dependencies.add('compile', small)
+//    }
+//
+//    boolean isHybridSdkProject = subProject.name == properties.get("hybridSdk")
+//    if (isHybridSdkProject) {
+//        appDepProject = subProject
+//        subProject.afterEvaluate { project ->
+//            sdkPlusProjects.each {
+//                project.dependencies.add('compile', it)
+//            }
+//            project.dependencies.add('compile', libSdk)
+//        }
+//    }
+//}
+////自动生成配置文件
+//def createProfileJava(pkg, File profileJava, Project lib) {
+//    def action = new CreateProfileAction(pkg: pkg, profileJava: profileJava)
+//    if (lib.hasProperty("android")) {
+//        action.execute(lib)
+//    } else {
+//        lib.afterEvaluate(action)
+//    }
+//}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

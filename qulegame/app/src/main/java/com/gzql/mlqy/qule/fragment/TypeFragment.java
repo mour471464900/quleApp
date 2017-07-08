@@ -43,7 +43,22 @@ public class TypeFragment extends Basefragment {
     }
 
     @Override
+    protected void requestData() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

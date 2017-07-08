@@ -39,4 +39,9 @@ public class HelpActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

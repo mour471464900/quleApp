@@ -6,8 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
-
 import android.widget.TextView;
 
 import com.gzql.mlqy.qule.FavoritesActivity;
@@ -52,7 +49,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
-
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -164,6 +160,16 @@ public class PersonalFragment extends Basefragment {
             safetyLl.setVisibility(View.VISIBLE);
         }
         return rootView;
+
+    }
+
+    @Override
+    protected void requestData() {
+
+    }
+
+    @Override
+    protected void initView() {
 
     }
 
@@ -349,24 +355,21 @@ public class PersonalFragment extends Basefragment {
                     request.put("password", password);
                     request.put("os", "android");
                     showDialogFragment(mProgressDialogFragment);
+                    // TODO: 2017/7/6   如果在运行程序时，用户清除缓存，app会崩溃的
                     HttpHelper.getInstance().httpPostString(URLCommon.USER_LOGIN_URL, request, getContext(), new RequestCallback<String>() {
                         @Override
                         public void succeedOnResult(String response) {
                             hideDialogFragment(mProgressDialogFragment);
                             ReturnBean<UserLoginBean> returnbean = JsonUtil.fromJson(response, UserLoginBean.class);
                             if (returnbean == null) {
-
                                 showShortToast("系统错误");
-
                             } else if (returnbean.getCode() == 1) {
-
                                 DataUtil.setSharePreferences(Constants.QL_ISLOGIN, true);
                                 DataUtil.setSharePreferences(Constants.QL_LOGIN_UID, returnbean.getData().getUid());
                                 DataUtil.setSharePreferences(Constants.QL_LOGIN_SESSION, returnbean.getData().getSession());
                                 DataUtil.setSharePreferences(Constants.QL_LOGIN_ACCOUNT, account);
                                 DataUtil.setSharePreferences(Constants.QL_LOGIN_TOKEN, returnbean.getData().getToken());
                                 DataUtil.setSharePreferences(Constants.QL_NICHENG, account);
-
                                 mHandler.sendEmptyMessage(0);
                                 mPopWindow.dismiss();
 
@@ -381,12 +384,8 @@ public class PersonalFragment extends Basefragment {
                                     case 30022:
                                         showShortToast("用户名不存在或密码错误");
                                         break;
-
                                 }
-
                             }
-
-
                             Log.d("yanyan", "succeedOnResult:登录" + response);
                         }
 
@@ -395,7 +394,41 @@ public class PersonalFragment extends Basefragment {
 
                         }
                     });
-
+                    // TODO: 2017/7/6 建议使用下面方法
+//                    HttpHelper.getInstance().httpPostString(URLCommon.USER_LOGIN_URL, request, getContext(), new RequestCallback<String>() {
+//                        @Override
+//                        public void succeedOnResult(String response) {
+//                            hideDialogFragment(mProgressDialogFragment);
+//                            ReturnBean<UserInfo> returnbean = JsonUtil.fromJson(response, UserInfo.class);
+//                            if (returnbean == null) {
+//                                showShortToast("系统错误");
+//                            } else if (returnbean.getCode() == 1) {
+//                                App.setUserInfo(returnbean.getData());
+//                                mHandler.sendEmptyMessage(0);
+//                                mPopWindow.dismiss();
+//                            } else {
+//                                switch (returnbean.getCode()) {
+//                                    case 30002:
+//                                        showShortToast("用户名不存在");
+//                                        break;
+//                                    case 30021:
+//                                        showShortToast("用户被禁止登录");
+//                                        break;
+//                                    case 30022:
+//                                        showShortToast("用户名不存在或密码错误");
+//                                        break;
+//                                }
+//                            }
+//                            Log.d("yanyan", "succeedOnResult:登录" + response);
+//                        }
+//
+//                        @Override
+//                        public void errorForCode(int code) {
+//
+//                        }
+//                    });
+//
+//
                 } else {
                     showShortToast("账号或密码格式错误");
                 }
@@ -477,4 +510,8 @@ public class PersonalFragment extends Basefragment {
         ed_mob.setSelection(ed_mob.getText().length());
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

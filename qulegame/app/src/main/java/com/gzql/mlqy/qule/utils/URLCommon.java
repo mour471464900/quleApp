@@ -5,18 +5,22 @@ package com.gzql.mlqy.qule.utils;
  */
 public class URLCommon {
 //手机注册
-    public static final String REGISTER_MOB = Constants.SDK_API_HOST+"openapi/user/registerByMobile";
+    public static final String REGISTER_MOB = "openapi/user/registerByMobile";
 //发送短信
-    public  final static String SMS_CODE_URL = Constants.SDK_API_HOST+"openapi/sms/sendSmsCode/reg";
+    public  final static String SMS_CODE_URL = "openapi/sms/sendSmsCode/reg";
 //用户登录
-    public final static String USER_LOGIN_URL = Constants.SDK_API_HOST+"openapi/user/login";
+    public final static String USER_LOGIN_URL = "openapi/user/login";
 //注销
-    public   final static String USER_LOGOUT_URL = Constants.SDK_API_HOST+"openapi/user/logout";
+    public   final static String USER_LOGOUT_URL = "openapi/user/logout";
 
 
+   //通过选取环境获得 api 前缀
+   public static String baseApi(){
+       return  LogUtil.getLogEnabled()? Constants.SDK_DEBAG_API_HOST : Constants.SDK_RELEASE_API_HOST;
+   }
 
-
-
-
+   public static String getApiAddress(String url){
+       return  baseApi()+url;
+   }
 
 }

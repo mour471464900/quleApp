@@ -23,3 +23,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#LRecyclerview_library
+-dontwarn com.github.jdsjlzx.**
+-keep class com.github.jdsjlzx.**{*;}
+# litePal 混淆
+-keep class org.litepal.** {*;}
+-keep class * extends org.litepal.crud.DataSupport {*;}
+#okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+#okio
+-dontwarn okio.**
+-keep class okio.**{*;}

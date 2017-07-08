@@ -116,4 +116,9 @@ public class SafetyActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -37,8 +37,10 @@
             android:visibility="gone"
             />
     </RelativeLayout>
-    <ListView
+    <!--新版带下拉刷新的recyclerView-->
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/recylerview_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
-
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

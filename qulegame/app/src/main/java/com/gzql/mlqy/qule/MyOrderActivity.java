@@ -38,4 +38,9 @@ public class MyOrderActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -83,7 +83,7 @@ public class HttpHelper {
      * @param callback  互调信息
      */
     public void httpPostString(String url, Map<String, String> parameter, final Context context, final RequestCallback<String> callback) {
-        OkGo.post(url).cacheKey(url).params(parameter, false).execute(new StringCallback() {
+        OkGo.post(url).cacheKey(URLCommon.getApiAddress(url)).params(parameter, false).execute(new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
 

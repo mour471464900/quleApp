@@ -4,6 +4,8 @@
 
     <version value="1" ></version>
 
+    <!--建立一个用户表-->
     <list>
+        <mapping class="com.gzql.mlqy.qule.bean.UserInfo" />
     </list>
 </litepal>

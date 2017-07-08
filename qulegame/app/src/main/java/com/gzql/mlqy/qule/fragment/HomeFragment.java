@@ -1,49 +1,62 @@
 package com.gzql.mlqy.qule.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.github.jdsjlzx.recyclerview.LRecyclerView;
+import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.gzql.mlqy.qule.R;
+import com.gzql.mlqy.qule.adapter.EmptyDataAdapter;
 import com.gzql.mlqy.qule.base.Basefragment;
 
-import butterknife.ButterKnife;
+import butterknife.BindView;
 
 /**
- * Created by Administrator on 2017/6/28.
+ * 首页fragment
  */
-
 public class HomeFragment extends Basefragment {
 
+    @BindView(R.id.recylerview_main)
+    LRecyclerView mRecyclerView;
+    LRecyclerViewAdapter mRecyclerViewAdapter;
+    EmptyDataAdapter emptyDataAdapter;
 
     public static HomeFragment newInstance(Bundle bundle) {
         HomeFragment fragment = new HomeFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView= super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this,rootView);
-        return rootView;
+    protected void requestData() {
+
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void initView() {
+        View headView = LayoutInflater.from(getActivity()).inflate(R.layout.view_home_main, null);
+        emptyDataAdapter = new EmptyDataAdapter(getActivity());
+        mRecyclerViewAdapter = new LRecyclerViewAdapter(emptyDataAdapter);
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerViewAdapter.addHeaderView(headView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //禁用下拉刷新功能
+        mRecyclerView.setPullRefreshEnabled(true);
+        //禁用自动加载更多功能
+        mRecyclerView.setLoadMoreEnabled(false);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

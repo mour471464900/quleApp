@@ -222,4 +222,9 @@ public class RegisterActivity extends BaseActivity {
             return false;
         }
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

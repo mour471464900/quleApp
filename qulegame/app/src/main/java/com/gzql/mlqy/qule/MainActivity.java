@@ -5,11 +5,10 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.gzql.mlqy.qule.base.BaseActivity;
 import com.gzql.mlqy.qule.fragment.GameFragment;
@@ -19,9 +18,6 @@ import com.gzql.mlqy.qule.fragment.TypeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity{
 
@@ -128,5 +124,10 @@ public class MainActivity extends BaseActivity{
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

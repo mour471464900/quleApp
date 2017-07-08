@@ -27,9 +27,9 @@ public class Constants {
     public static final String QL_INIT_APP = "ql_init_app";
 
     /** 正式*/
- //   public static final String SDK_API_HOST = "http://api.788wan.com/";
+     public static final String SDK_DEBAG_API_HOST = "http://api.788wan.com/";
     /** 测试*/
-    public static final String SDK_API_HOST = "http://192.168.0.230/";
+    public static final String SDK_RELEASE_API_HOST = "http://192.168.0.230/";
 
 
 

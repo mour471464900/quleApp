@@ -1,7 +1,6 @@
 package com.gzql.mlqy.qule;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,5 +38,10 @@ public class ChangePasswordActivity extends BaseActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

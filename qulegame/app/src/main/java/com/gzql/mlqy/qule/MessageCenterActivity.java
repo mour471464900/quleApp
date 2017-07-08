@@ -39,4 +39,9 @@ public class MessageCenterActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

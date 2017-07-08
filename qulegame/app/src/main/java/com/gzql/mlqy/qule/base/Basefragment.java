@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/6/28.
  */
 
-public abstract class Basefragment extends Fragment implements InterfaceShowToastAndProgress {
+public abstract class Basefragment extends Fragment implements InterfaceShowToastAndProgress ,View.OnClickListener{
     protected String Tag=getClass().getSimpleName();
 
     private BaseActivity mBaseActivity;
@@ -36,12 +36,17 @@ public abstract class Basefragment extends Fragment implements InterfaceShowToas
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view=inflater.inflate(getLayoutId(),null,false);
-
         ButterKnife.bind(this,view);
+        initView();
+        requestData();
         return view;
     }
+
+    protected abstract void requestData();
+
+
+    protected abstract void initView();
 
     public abstract int getLayoutId();
 
