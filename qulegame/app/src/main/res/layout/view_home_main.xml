@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <com.youth.banner.Banner
+      android:id="@+id/banner_head"
+      android:layout_width="match_parent"
+      android:layout_height="180dp"
+      app:is_auto_play="true"
+      app:image_scale_type="fit_xy"
+      app:delay_time="3000"
+      app:indicator_drawable_selected="@color/colorPrimaryDark"
+      app:indicator_drawable_unselected="@color/app_gray"
+      app:indicator_height="15dp"
+      app:indicator_margin="10dp"
+      />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#e4e4e4"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/tv_ze"
+                android:drawableTop="@drawable/ic_ze"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打折游戏"
+                android:gravity="center"
+                android:layout_marginRight="25dp"
+                />
+            <TextView
+                android:id="@+id/tv_ka"
+                android:drawableTop="@drawable/ic_ka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开服表"
+                android:gravity="center"
+                android:layout_marginRight="25dp"
+                />
+            <TextView
+                android:id="@+id/tv_game"
+                android:drawableTop="@drawable/ic_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="趣乐游戏"
+                android:gravity="center"
+                android:layout_marginRight="25dp"
+                />
+            <TextView
+                android:id="@+id/tv_all"
+                android:drawableTop="@drawable/ic_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部游戏"
+                android:gravity="center"
+                />
+        </LinearLayout>
+        <include layout="@layout/view_home_hot_game"/>
+        <include layout="@layout/view_home_new_game"/>
+
+    </LinearLayout>
+</LinearLayout>
