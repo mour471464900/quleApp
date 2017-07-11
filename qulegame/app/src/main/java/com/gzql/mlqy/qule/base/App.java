@@ -4,6 +4,7 @@ package com.gzql.mlqy.qule.base;
 
 import com.gzql.mlqy.qule.bean.UserInfo;
 import com.gzql.mlqy.qule.utils.DataUtil;
+import com.lzy.okgo.OkGo;
 
 import org.litepal.LitePal;
 import org.litepal.LitePalApplication;
@@ -19,6 +20,7 @@ public class App extends LitePalApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        OkGo.init(this);
         DataUtil.init(this);//初始化数据存储工具类
         LitePal.initialize(this); // 初始化 litePal
     }

@@ -6,5 +6,6 @@
 
     <color name="app_gray">#f9f9f9</color>
 
-    <color name="gray">#dbdbdb</color>
+    <color name="gray">#f1f1f1</color>
+    <color name="click">#c9c9c9</color>
 </resources>

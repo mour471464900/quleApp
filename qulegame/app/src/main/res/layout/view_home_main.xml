@@ -75,6 +75,6 @@
         </LinearLayout>
         <include layout="@layout/view_home_hot_game"/>
         <include layout="@layout/view_home_new_game"/>
-
+        <include layout="@layout/view_home_recent_game"/>
     </LinearLayout>
 </LinearLayout>
